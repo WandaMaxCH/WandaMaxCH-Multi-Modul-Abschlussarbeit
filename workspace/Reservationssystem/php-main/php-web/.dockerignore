@@ -1,0 +1,39 @@
+# Git files
+.git
+.gitignore
+
+# Docker files (don't copy these into the container)
+Dockerfile
+docker-compose.yml
+.dockerignore
+
+# IDE and editor files
+.vscode
+.idea
+*.swp
+*.swo
+*~
+
+# OS generated files
+.DS_Store
+.DS_Store?
+._*
+.Spotlight-V100
+.Trashes
+ehthumbs.db
+Thumbs.db
+
+# Logs
+*.log
+logs/
+
+# Temporary files
+tmp/
+temp/
+
+# Node modules (if you have any)
+node_modules/
+
+# Environment files (create these in container instead)
+.env.local
+.env.production

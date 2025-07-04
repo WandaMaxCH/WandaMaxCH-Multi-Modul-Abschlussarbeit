@@ -1,0 +1,76 @@
+<!--Seite mit Formular-->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Reservation erfassen</title>
+  <link rel="stylesheet" href="../../../../../test/java/com/school/Reservationssystem/style.css">
+</head>
+<body>
+
+<h2>Bitte füllen Sie das Formular aus</h2>
+
+<form onsubmit="return validateForm()" novalidate>
+  <table>
+    <tr>
+      <td><label for="datum">Datum:</label></td>
+      <td><input type="date" id="datum" name="datum" required></td>
+    </tr>
+    <tr>
+      <td><label for="von">Von:</label></td>
+      <td><input type="time" id="von" name="von" required></td>
+    </tr>
+    <tr>
+      <td><label for="bis">Bis:</label></td>
+      <td><input type="time" id="bis" name="bis" required></td>
+    </tr>
+    <tr>
+      <td><label for="zimmer">Zimmer:</label></td>
+      <td>
+        <select id="zimmer" name="zimmer" required>
+          <option value="">Bitte wählen</option>
+          <option value="101">101</option>
+          <option value="102">102</option>
+          <option value="103">103</option>
+          <option value="104">104</option>
+          <option value="105">105</option>
+        </select>
+      </td>
+    </tr>
+    <tr>
+      <td><label for="bemerkung">Bemerkung:</label></td>
+      <td>
+        <textarea id="bemerkung" name="bemerkung" minlength="10" maxlength="200" required></textarea>
+      </td>
+    </tr>
+    <tr>
+      <td><label for="teilnehmer">Teilnehmerliste:</label></td>
+      <td>
+        <input type="text" id="teilnehmer" name="teilnehmer"
+               pattern="^([A-Za-zÄÖÜäöüß]+\s[A-Za-zÄÖÜäöüß]+)(,\s*[A-Za-zÄÖÜäöüß]+\s[A-Za-zÄÖÜäöüß]+)*$"
+               title="Nur Vor- und Nachnamen mit Komma trennen (z. B. Max Müller, Anna Schmidt)"
+               required>
+      </td>
+    </tr>
+    <tr>
+      <td colspan="2" style="text-align:right;">
+        <button type="submit">Absenden</button>
+      </td>
+    </tr>
+  </table>
+</form>
+
+<script>
+  function validateForm() {
+    const datum = document.getElementById('datum').value;
+    const heute = new Date().toISOString().split("T")[0];
+    if (datum <= heute) {
+      alert("Bitte ein Datum in der Zukunft wählen.");
+      return false;
+    }
+    return true;
+  }
+</script>
+
+</body>
+</html>

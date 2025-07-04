@@ -1,0 +1,26 @@
+services:
+  web:
+    build: .
+    ports:
+      - "8080:80"
+    volumes:
+      - .:/var/www/html
+    container_name: php-app
+    restart: unless-stopped
+
+  #Database data
+  database:
+    image: mysql:8.0
+    environment:
+      MYSQL_ALLOW_EMPTY_PASSWORD: "yes"
+      MYSQL_DATABASE: reservationen
+
+    ports:
+      - "3307:3306"
+    volumes:
+      - mysql_data:/var/lib/mysql
+    container_name: reservations-mysql
+    restart: unless-stopped
+
+volumes:
+  mysql_data:

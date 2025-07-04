@@ -1,0 +1,1 @@
+{"version":1,"defects":{"ReservationHandlerTest::testLength":7},"times":{"ReservationHandlerTest::testLength":0.013,"ReservationHandlerTest::testCharacters":0.001,"ReservationHandlerTest::testValidPostDataTrue":0,"ReservationHandlerTest::testValidPostDataFalse":0}}
